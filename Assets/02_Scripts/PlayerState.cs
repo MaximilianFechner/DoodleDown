@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+    [Header("Invincibility Settings")]
+    [SerializeField] public bool flashWhenInvincible = true;
+    [SerializeField] public float invincibilityFlashInterval = 0.1f;
+    [SerializeField] public float invincibilityAlpha = 0.5f;
+
     private bool isInvincible = false;
     private bool isSlowFalling = false;
     private SpriteRenderer playerSprite;
@@ -45,8 +50,24 @@ public class PlayerState : MonoBehaviour
     {
         isInvincible = true;
 
-        // Simple wait for duration
-        yield return new WaitForSeconds(duration);
+        if (flashWhenInvincible && playerSprite != null)
+        {
+            Color originalColor = playerSprite.color;
+            Color transparentColor = new Color(originalColor.r, originalColor.g, originalColor.b, invincibilityAlpha);
+
+            float endTime = Time.time + duration;
+            while (Time.time < endTime)
+            {
+                playerSprite.color = (playerSprite.color.a == originalColor.a) ? transparentColor : originalColor;
+                yield return new WaitForSeconds(invincibilityFlashInterval);
+            }
+
+            playerSprite.color = originalColor;
+        }
+        else
+        {
+            yield return new WaitForSeconds(duration);
+        }
 
         isInvincible = false;
         invincibilityCoroutine = null;
