@@ -3,17 +3,22 @@ using System.Collections.Generic;
 
 public class PlatformSpawn : MonoBehaviour
 {
-    public GameObject platformPrefab;
+    public GameObject platformPrefabA;
+    public GameObject platformPrefabB;
     public int initialPlatformCount = 10;
     public float spawnDistance = 2f;
     public float minX = -2.5f, maxX = 2f;
     public float startSpeed = 2f;
     public float speedIncreasePerSecond = 0.2f;
+    public int maxSamePrefabInRow = 3; 
 
     private float lastSpawnY = -7f;
     private List<GameObject> platforms = new List<GameObject>();
     private float currentSpeed;
     private float timeElapsed;
+
+    private int lastPrefabIndex = -1; 
+    private int samePrefabCount = 0;
 
     void Start()
     {
@@ -55,9 +60,34 @@ public class PlatformSpawn : MonoBehaviour
 
     void SpawnPlatform(float y)
     {
+        int prefabIndex;
+        if (lastPrefabIndex == -1)
+        {
+            prefabIndex = Random.Range(0, 2); 
+            samePrefabCount = 1;
+        }
+        else
+        {
+            if (samePrefabCount >= maxSamePrefabInRow)
+            {
+                prefabIndex = 1 - lastPrefabIndex; 
+                samePrefabCount = 1;
+            }
+            else
+            {
+                prefabIndex = Random.Range(0, 2);
+                if (prefabIndex == lastPrefabIndex)
+                    samePrefabCount++;
+                else
+                    samePrefabCount = 1;
+            }
+        }
+        lastPrefabIndex = prefabIndex;
+
+        GameObject prefab = prefabIndex == 0 ? platformPrefabA : platformPrefabB;
         float x = Random.Range(minX, maxX);
         Vector3 pos = new Vector3(x, y, 0);
-        GameObject platform = Instantiate(platformPrefab, pos, Quaternion.identity);
+        GameObject platform = Instantiate(prefab, pos, Quaternion.identity);
         platforms.Add(platform);
     }
 }

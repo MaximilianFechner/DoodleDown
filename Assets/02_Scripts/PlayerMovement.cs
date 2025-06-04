@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             moveInput = 1f;
 
-        if (rb.linearVelocity.y > 0.5f)
+        if (rb.linearVelocity.y > 0.1f)
         {
             animator.SetBool("isJumping", true);
         }

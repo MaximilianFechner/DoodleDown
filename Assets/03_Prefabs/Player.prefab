@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5962912380050878378}
   - component: {fileID: 4249510190483871886}
   - component: {fileID: 832698785817424518}
+  - component: {fileID: 5446997154407634072}
   - component: {fileID: 3844403358370499505}
   - component: {fileID: -4158076137989961886}
   m_Layer: 0
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9a5a549b39b99134492ee90c4b058fd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -130,14 +131,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f23e1a776ba7964c818f6ad4f952566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 6
+  jumpForce: 7
   moveSpeed: 5
   gravityScale: 2
   acceleration: 10
   deceleration: 10
   maxSpeed: 5
-  fallSprite: {fileID: 0}
-  jumpSprite: {fileID: 0}
+--- !u!114 &5446997154407634072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992404838178491198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc04b04316d4e8489ce4e3765c97a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeXLimit: 4.8
 --- !u!58 &3844403358370499505
 CircleCollider2D:
   m_ObjectHideFlags: 0
