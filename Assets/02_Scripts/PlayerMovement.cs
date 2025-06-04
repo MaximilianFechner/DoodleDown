@@ -68,6 +68,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<Collectibles>() != null)
+        {
+            return;
+        }
+
+        PlayerState playerState = GetComponent<PlayerState>();
+        if (playerState != null && playerState.IsInvincible())
+        {
+            return;
+        }
+        
         //TODO Restartlogik einbauen
         Debug.Log("you died!");
         SceneManager.LoadScene(0);
