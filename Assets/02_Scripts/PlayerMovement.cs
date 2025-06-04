@@ -81,6 +81,6 @@ public class PlayerMovement : MonoBehaviour
         
         //TODO Restartlogik einbauen
         Debug.Log("you died!");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
