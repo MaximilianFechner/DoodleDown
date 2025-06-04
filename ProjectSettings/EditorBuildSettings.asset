@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01_Scenes/SceneMarius.unity
+    path: Assets/01_Scenes/MainMenu.unity
     guid: 887a0909c018270419cf47ee34f21433
   - enabled: 1
     path: Assets/01_Scenes/Level.unity
