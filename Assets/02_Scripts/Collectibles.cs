@@ -58,12 +58,6 @@ public class Collectibles : MonoBehaviour
             }
         }
 
-        ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
-        if (scoreManager != null)
-        {
-            scoreManager.AddPoints(pointValue);
-        }
-
         if (collectSound != null)
         {
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
