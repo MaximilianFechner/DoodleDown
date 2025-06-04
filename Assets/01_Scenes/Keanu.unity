@@ -154,13 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36af8ae1d0835c4fb8ae2e3b7dc8a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 2503325928706899972, guid: 9dfcf0662f275cd42b14540b52ab783d, type: 3}
+  platformPrefabA: {fileID: 2503325928706899972, guid: 0bcbf467858e27943a0446c6de426a02, type: 3}
+  platformPrefabB: {fileID: 2503325928706899972, guid: 0f5293a7cec26394bb60f8322195ab69, type: 3}
   initialPlatformCount: 10
   spawnDistance: 10
   minX: -3.5
   maxX: 3.5
   startSpeed: 2
   speedIncreasePerSecond: 0.3
+  maxSamePrefabInRow: 2
 --- !u!4 &942209165
 Transform:
   m_ObjectHideFlags: 0
@@ -434,11 +436,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2093832069878258259, guid: 9dfcf0662f275cd42b14540b52ab783d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.54
+      value: -11.73
       objectReference: {fileID: 0}
     - target: {fileID: 2093832069878258259, guid: 9dfcf0662f275cd42b14540b52ab783d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.82
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 2093832069878258259, guid: 9dfcf0662f275cd42b14540b52ab783d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -495,11 +497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4918453384993253675, guid: 4b57a4455e2f064418e889501a6621ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -8.36
       objectReference: {fileID: 0}
     - target: {fileID: 4918453384993253675, guid: 4b57a4455e2f064418e889501a6621ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.03
+      value: 8.21
       objectReference: {fileID: 0}
     - target: {fileID: 4918453384993253675, guid: 4b57a4455e2f064418e889501a6621ce, type: 3}
       propertyPath: m_LocalPosition.z
