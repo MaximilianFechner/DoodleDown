@@ -46,7 +46,7 @@ public class PlatformSpawn : MonoBehaviour
 
         for (int i = platforms.Count - 1; i >= 0; i--)
         {
-            if (platforms[i].transform.position.y > 6f)
+            if (platforms[i] != null && platforms[i].transform.position.y > 6f)
             {
                 Destroy(platforms[i]);
                 platforms.RemoveAt(i);
@@ -54,7 +54,7 @@ public class PlatformSpawn : MonoBehaviour
                 float minY = float.MaxValue;
                 foreach (var p in platforms)
                 {
-                    if (p.transform.position.y < minY)
+                    if (p != null && p.transform.position.y < minY)
                         minY = p.transform.position.y;
                 }
                 float newY = platforms.Count > 0 ? minY - spawnDistance : -7f;
