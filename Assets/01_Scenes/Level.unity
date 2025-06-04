@@ -504,6 +504,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7807425682488813149, guid: d484682a9268e994e8f95b4aed08b70d, type: 3}
+      propertyPath: powerupPrefabA
+      value: 
+      objectReference: {fileID: 992404838178491198, guid: d5a4c7b4e702c3a4d84c46a61c8667eb, type: 3}
+    - target: {fileID: 7807425682488813149, guid: d484682a9268e994e8f95b4aed08b70d, type: 3}
+      propertyPath: powerupPrefabB
+      value: 
+      objectReference: {fileID: 992404838178491198, guid: 214cc466233a8b6459bc36f3d30814bd, type: 3}
+    - target: {fileID: 7807425682488813149, guid: d484682a9268e994e8f95b4aed08b70d, type: 3}
       propertyPath: platformPrefabA
       value: 
       objectReference: {fileID: 2103312192256719274}
