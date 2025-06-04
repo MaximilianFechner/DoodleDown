@@ -41,12 +41,19 @@ public class PlatformSpawn : MonoBehaviour
 
         foreach (var platform in platforms)
         {
-            platform.transform.position += Vector3.up * currentSpeed * Time.deltaTime;
+            if (platform != null)
+                platform.transform.position += Vector3.up * currentSpeed * Time.deltaTime;
         }
 
         for (int i = platforms.Count - 1; i >= 0; i--)
         {
-            if (platforms[i] != null && platforms[i].transform.position.y > 6f)
+            if (platforms[i] == null)
+            {
+                platforms.RemoveAt(i);
+                continue;
+            }
+
+            if (platforms[i].transform.position.y > 6f)
             {
                 Destroy(platforms[i]);
                 platforms.RemoveAt(i);
