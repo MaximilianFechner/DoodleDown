@@ -15,7 +15,7 @@ public class BackgroundMove : MonoBehaviour
     {
         for (int i = 0; i < maxBackgrounds; i++)
         {
-            float y = -6 + i * backgroundHeight;
+            float y = -12 + i * backgroundHeight;
             SpawnBackground(new Vector3(0, y, 0));
         }
     }
@@ -28,17 +28,25 @@ public class BackgroundMove : MonoBehaviour
         }
         if (backgrounds.Count < maxBackgrounds)
         {
-            GameObject lastBg = backgrounds[backgrounds.Count - 1];
-            if (lastBg.transform.position.y >= -6 + backgroundHeight - 0.1f)
+            GameObject lowestBg = backgrounds[0];
+            for (int i = 1; i < backgrounds.Count; i++)
             {
-                Vector3 newPos = lastBg.transform.position - new Vector3(0, backgroundHeight, 0);
+                if (backgrounds[i].transform.position.y < lowestBg.transform.position.y)
+                {
+                    lowestBg = backgrounds[i];
+                }
+            }
+
+            if (lowestBg.transform.position.y >= -backgroundHeight + 0.1f)
+            {
+                Vector3 newPos = lowestBg.transform.position - new Vector3(0, backgroundHeight, 0);
                 SpawnBackground(newPos);
             }
         }
 
         for (int i = backgrounds.Count - 1; i >= 0; i--)
         {
-            if (backgrounds[i].transform.position.y > 7f)
+            if (backgrounds[i].transform.position.y > 13f)
             {
                 Destroy(backgrounds[i]);
                 backgrounds.RemoveAt(i);

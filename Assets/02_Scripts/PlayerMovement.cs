@@ -1,5 +1,6 @@
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,33 +12,28 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration = 10f;
     public float maxSpeed = 5f;
 
-    //public Sprite fallSprite;
-    //public Sprite jumpSprite;
+    public float screenGameOverTolerance = 0.1f;
 
     private Rigidbody2D rb;
     private float moveInput;
     private Animator animator;
+
+    private float screenTopY;
+    private float screenBottomY;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         rb.gravityScale = gravityScale;
+
+        screenBottomY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0)).y - screenGameOverTolerance;
+        screenTopY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1f, 0)).y + screenGameOverTolerance;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-
-        moveInput = 0f;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            moveInput = -1f;
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            moveInput = 1f;
+        HandleJumpInput();
 
         if (rb.linearVelocity.y > 0.1f)
         {
@@ -46,6 +42,11 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.linearVelocity.y < -2f)
         {
             animator.SetBool("isJumping", false);
+        }
+
+        if (transform.position.y > screenTopY || transform.position.y < screenBottomY)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -65,6 +66,46 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
         }
     }
+
+    private void HandleJumpInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            moveInput = -1f;
+            Jump();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            moveInput = 1f;
+            Jump();
+        }
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (touch.position.x < Screen.width / 2f)
+                {
+                    moveInput = -1f;
+                }
+                else
+                {
+                    moveInput = 1f;
+                }
+
+                Jump();
+            }
+        }
+    }
+
+    private void Jump()
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

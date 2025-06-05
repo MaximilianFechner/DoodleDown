@@ -14,7 +14,7 @@ public class PlatformSpawn : MonoBehaviour
     public float speedIncreasePerSecond = 0.2f;
     public int maxSamePrefabInRow = 3; 
 
-    private float lastSpawnY = -7f;
+    private float lastSpawnY = -13f;
     private List<GameObject> platforms = new List<GameObject>();
     private float currentSpeed;
     private float timeElapsed;
@@ -53,7 +53,7 @@ public class PlatformSpawn : MonoBehaviour
                 continue;
             }
 
-            if (platforms[i].transform.position.y > 6f)
+            if (platforms[i].transform.position.y > 13f)
             {
                 Destroy(platforms[i]);
                 platforms.RemoveAt(i);
