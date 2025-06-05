@@ -10,12 +10,11 @@ public class BackgroundMove : MonoBehaviour
 
     private List<GameObject> backgrounds = new List<GameObject>();
 
-    
     void Start()
     {
         for (int i = 0; i < maxBackgrounds; i++)
         {
-            float y = -12 + i * backgroundHeight;
+            float y = -20 + i * backgroundHeight;
             SpawnBackground(new Vector3(0, y, 0));
         }
     }
@@ -37,7 +36,7 @@ public class BackgroundMove : MonoBehaviour
                 }
             }
 
-            if (lowestBg.transform.position.y >= -backgroundHeight + 0.1f)
+            if (lowestBg.transform.position.y >= -backgroundHeight -12f)
             {
                 Vector3 newPos = lowestBg.transform.position - new Vector3(0, backgroundHeight, 0);
                 SpawnBackground(newPos);
