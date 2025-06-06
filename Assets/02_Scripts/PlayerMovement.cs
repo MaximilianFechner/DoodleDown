@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
@@ -33,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale != 1) return;
+
         HandleJumpInput();
 
         if (rb.linearVelocity.y > 0.1f)
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y > screenTopY || transform.position.y < screenBottomY)
         {
-            SceneManager.LoadScene(0);
+            GameManager.Instance.StopFall();
         }
     }
 
@@ -109,19 +110,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Collectibles>() != null)
-        {
-            return;
-        }
-
-        PlayerState playerState = GetComponent<PlayerState>();
-        if (playerState != null && playerState.IsInvincible())
-        {
-            return;
-        }
-        
-        //TODO Restartlogik einbauen
-        Debug.Log("you died!");
-        SceneManager.LoadScene(0);
+        GameManager.Instance.StopFall();
     }
 }

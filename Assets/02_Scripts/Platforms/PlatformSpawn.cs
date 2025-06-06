@@ -64,6 +64,7 @@ public class PlatformSpawn : MonoBehaviour
                     if (p != null && p.transform.position.y < minY)
                         minY = p.transform.position.y;
                 }
+
                 float newY = platforms.Count > 0 ? minY - spawnDistance : -7f;
                 SpawnPlatform(newY);
             }
