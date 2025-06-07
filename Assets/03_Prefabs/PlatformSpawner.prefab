@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6478759919923423785}
   - component: {fileID: 8087491573563500894}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: PlatformSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,8 +49,8 @@ MonoBehaviour:
   - {fileID: 2503325928706899972, guid: 0bcbf467858e27943a0446c6de426a02, type: 3}
   collectibles:
   - {fileID: 992404838178491198, guid: d5a4c7b4e702c3a4d84c46a61c8667eb, type: 3}
-  movementSpeed: 5.48
-  spawnDelay: 1
+  movementSpeed: 3
+  spawnDelay: 1.5
   spawnMinX: -4
   spawnMaxX: 4
   collectibleChance: 10

@@ -6,11 +6,14 @@ public class Collectibles : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] public int pointValue = 10;
     [SerializeField] private AudioClip collectSound;
+    private AudioSource audioSource;
 
     private bool isCollected = false;
 
-    void Start()
+    private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,7 +36,7 @@ public class Collectibles : MonoBehaviour
 
         if (collectSound != null)
         {
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            audioSource.PlayOneShot(collectSound);
         }
 
         spriteRenderer.enabled = false;

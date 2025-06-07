@@ -41,7 +41,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+
         score = 0f;
+
+        highscore = PlayerPrefs.GetFloat("Highscore", 0f);
+        highScoreText.text = $"{Mathf.FloorToInt(highscore)}";
     }
 
     void Update()
@@ -49,7 +55,15 @@ public class GameManager : MonoBehaviour
         if (!isLevelStarted || Time.timeScale != 1) return;
 
         score += Time.deltaTime;
-        scoreText.text = $"{Mathf.FloorToInt(GameManager.Instance.score)}";
+        scoreText.text = $"{Mathf.FloorToInt(score)}";
+
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetFloat("Highscore", highscore);
+            PlayerPrefs.Save();
+            highScoreText.text = $"{Mathf.FloorToInt(highscore)}";
+        }
     }
 
     public void AddPoints(int value)

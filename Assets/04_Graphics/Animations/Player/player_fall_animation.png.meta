@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 10efb567a8d8b9d488646fd2299024c5
+guid: d24f26c21dd3501418956020beba11f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6776993887781786402
-    second: player_jump_animation_0
+      213: -3256750039628922041
+    second: player_fall_animation_0
   - first:
-      213: -3540221350591574085
-    second: player_jump_animation_1
+      213: -8122642763035774241
+    second: player_fall_animation_1
   - first:
-      213: 4512963368327365357
-    second: player_jump_animation_2
+      213: 8592747328662167521
+    second: player_fall_animation_2
   - first:
-      213: -4593583027768319537
-    second: player_jump_animation_3
+      213: 3716524257178599607
+    second: player_fall_animation_3
   - first:
-      213: 7061519310207160250
-    second: player_jump_animation_4
+      213: -6120490830178472890
+    second: player_fall_animation_4
   - first:
-      213: -7038167504519065297
-    second: player_jump_animation_5
+      213: -4042137543496492253
+    second: player_fall_animation_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,11 +111,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_jump_animation_0
+      name: player_fall_animation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,16 +141,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2231a3ee808bc0e50800000000000000
-      internalID: 6776993887781786402
+      spriteID: f7f6bec6ea1308945aed5b85c22886a5
+      internalID: -3256750039628922041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jump_animation_1
+      name: player_fall_animation_1
       rect:
         serializedVersion: 2
         x: 16
@@ -150,16 +163,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bbf4cb3407b9edec0800000000000000
-      internalID: -3540221350591574085
+      spriteID: 63000c5f89daaad469bd4d43efb51255
+      internalID: -8122642763035774241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jump_animation_2
+      name: player_fall_animation_2
       rect:
         serializedVersion: 2
         x: 32
@@ -172,16 +185,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: de2c085d54441ae30800000000000000
-      internalID: 4512963368327365357
+      spriteID: 4671f1a833042ad44b4e74dd84e31db3
+      internalID: 8592747328662167521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jump_animation_3
+      name: player_fall_animation_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,16 +207,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fc12b97f2905040c0800000000000000
-      internalID: -4593583027768319537
+      spriteID: 539d0078f664f0542841d0155f0223af
+      internalID: 3716524257178599607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jump_animation_4
+      name: player_fall_animation_4
       rect:
         serializedVersion: 2
         x: 64
@@ -216,16 +229,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: abf857b266e8ff160800000000000000
-      internalID: 7061519310207160250
+      spriteID: 4c6e40e1660fc0d4bb672b88ab2e519d
+      internalID: -6120490830178472890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_jump_animation_5
+      name: player_fall_animation_5
       rect:
         serializedVersion: 2
         x: 80
@@ -238,10 +251,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f219177c1f7635e90800000000000000
-      internalID: -7038167504519065297
+      spriteID: ed0ebc90ff12b894fbe01a8fe8cc7a0f
+      internalID: -4042137543496492253
       vertices: []
       indices: 
       edges: []
@@ -250,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b773053b158c5444ba29dfc6ece91b83
+    spriteID: 1b3a6a9841aadf3449e547010f224e8a
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_jump_animation_0: 6776993887781786402
-      player_jump_animation_1: -3540221350591574085
-      player_jump_animation_2: 4512963368327365357
-      player_jump_animation_3: -4593583027768319537
-      player_jump_animation_4: 7061519310207160250
-      player_jump_animation_5: -7038167504519065297
+      player_fall_animation_0: -3256750039628922041
+      player_fall_animation_1: -8122642763035774241
+      player_fall_animation_2: 8592747328662167521
+      player_fall_animation_3: 3716524257178599607
+      player_fall_animation_4: -6120490830178472890
+      player_fall_animation_5: -4042137543496492253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

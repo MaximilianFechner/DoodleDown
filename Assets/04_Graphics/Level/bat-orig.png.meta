@@ -1,25 +1,55 @@
 fileFormatVersion: 2
-guid: d24f26c21dd3501418956020beba11f7
+guid: ab796d759e6146e4fbca0c08507d356c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3256750039628922041
-    second: player_fall_animation_0
+      213: 4956206947225884699
+    second: bat-orig_0
   - first:
-      213: -8122642763035774241
-    second: player_fall_animation_1
+      213: 6972459151877570972
+    second: bat-orig_1
   - first:
-      213: 8592747328662167521
-    second: player_fall_animation_2
+      213: 4428992130037574845
+    second: bat-orig_2
   - first:
-      213: 3716524257178599607
-    second: player_fall_animation_3
+      213: -314200836662291792
+    second: bat-orig_3
   - first:
-      213: -6120490830178472890
-    second: player_fall_animation_4
+      213: 8166001347766232108
+    second: bat-orig_4
   - first:
-      213: -4042137543496492253
-    second: player_fall_animation_5
+      213: -6383618470932405145
+    second: bat-orig_5
+  - first:
+      213: -4117342132710153192
+    second: bat-orig_6
+  - first:
+      213: -6270995040504253642
+    second: bat-orig_7
+  - first:
+      213: -8291001227662649871
+    second: bat-orig_8
+  - first:
+      213: -2949963271700672124
+    second: bat-orig_9
+  - first:
+      213: 4997418804188303544
+    second: bat-orig_10
+  - first:
+      213: 5494750652304803404
+    second: bat-orig_11
+  - first:
+      213: 8311663214868495352
+    second: bat-orig_12
+  - first:
+      213: -2994995917460131891
+    second: bat-orig_13
+  - first:
+      213: 5437102537467636419
+    second: bat-orig_14
+  - first:
+      213: 5504457137823109604
+    second: bat-orig_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,137 +141,84 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_fall_animation_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7f6bec6ea1308945aed5b85c22886a5
-      internalID: -3256750039628922041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_fall_animation_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63000c5f89daaad469bd4d43efb51255
-      internalID: -8122642763035774241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_fall_animation_2
+      name: bat-orig_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
-        width: 16
-        height: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4671f1a833042ad44b4e74dd84e31db3
-      internalID: 8592747328662167521
+      spriteID: c91859e28a623c060800000000000000
+      internalID: 6972459151877570972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_fall_animation_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 539d0078f664f0542841d0155f0223af
-      internalID: 3716524257178599607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_fall_animation_4
+      name: bat-orig_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
-        width: 16
-        height: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4c6e40e1660fc0d4bb672b88ab2e519d
-      internalID: -6120490830178472890
+      spriteID: dbce3ef50e0f67d30800000000000000
+      internalID: 4428992130037574845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_fall_animation_5
+      name: bat-orig_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ed0ebc90ff12b894fbe01a8fe8cc7a0f
-      internalID: -4042137543496492253
+      spriteID: 0b21d96f00cb3abf0800000000000000
+      internalID: -314200836662291792
       vertices: []
       indices: 
       edges: []
@@ -250,7 +227,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1b3a6a9841aadf3449e547010f224e8a
+    spriteID: 9b9697f2f89fc7640b9ea8cd8334ee02
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +237,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_fall_animation_0: -3256750039628922041
-      player_fall_animation_1: -8122642763035774241
-      player_fall_animation_2: 8592747328662167521
-      player_fall_animation_3: 3716524257178599607
-      player_fall_animation_4: -6120490830178472890
-      player_fall_animation_5: -4042137543496492253
+      bat-orig_0: 4956206947225884699
+      bat-orig_1: 6972459151877570972
+      bat-orig_10: 4997418804188303544
+      bat-orig_11: 5494750652304803404
+      bat-orig_12: 8311663214868495352
+      bat-orig_13: -2994995917460131891
+      bat-orig_14: 5437102537467636419
+      bat-orig_15: 5504457137823109604
+      bat-orig_2: 4428992130037574845
+      bat-orig_3: -314200836662291792
+      bat-orig_4: 8166001347766232108
+      bat-orig_5: -6383618470932405145
+      bat-orig_6: -4117342132710153192
+      bat-orig_7: -6270995040504253642
+      bat-orig_8: -8291001227662649871
+      bat-orig_9: -2949963271700672124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

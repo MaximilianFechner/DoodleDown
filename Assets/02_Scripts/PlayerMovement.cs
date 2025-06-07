@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y > screenTopY || transform.position.y < screenBottomY)
         {
-            GameManager.Instance.StopFall();
+            if (!isAlive) return;
+            Die();
         }
     }
 
@@ -82,17 +83,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            moveInput = -1f;
-            Jump();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
-            moveInput = 1f;
-            Jump();
-        }
-
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -146,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.StopFall();
             spriteRenderer.enabled = false;
+            isAlive = false;
         }
     }
     
