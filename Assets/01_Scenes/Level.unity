@@ -224,7 +224,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.4
   m_Pitch: 1.21
   Loop: 0
   Mute: 0
@@ -784,6 +784,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 832698785817424518, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: playerDeathPS
+      value: 
+      objectReference: {fileID: 2117885048614275562, guid: 06a6a7ec64684ef46887ea9dbb547945, type: 3}
     - target: {fileID: 832698785817424518, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
       propertyPath: hitSounds.Array.size
       value: 1

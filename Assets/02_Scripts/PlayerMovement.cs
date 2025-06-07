@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 10f;
     public float deceleration = 10f;
     public float maxSpeed = 5f;
+    private bool isAlive = true;
 
     public float screenGameOverTolerance = 0.1f;
 
     private Rigidbody2D rb;
     private float moveInput;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private float screenTopY;
     private float screenBottomY;
@@ -24,12 +27,15 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip[] jumpSounds;
     public AudioClip[] hitSounds;
+    public GameObject playerDeathPS;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         rb.gravityScale = gravityScale;
 
         screenBottomY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0)).y - screenGameOverTolerance;
@@ -120,12 +126,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!isAlive) return;
+        Die();
+    }
+
+    public void Die()
+    {
         if (GameManager.Instance.isHitSFXOn && audioSource != null && hitSounds != null)
         {
-            audioSource.pitch = Random.Range(1.1f, 1.4f);
+            audioSource.pitch = Random.Range(1.2f, 1.5f);
             audioSource.PlayOneShot(hitSounds[0]);
+            StartCoroutine(WaitThenStopFall(hitSounds[0].length));
+            spriteRenderer.enabled = false;
+            Instantiate(playerDeathPS, transform.position, Quaternion.identity);
+            isAlive = false;
         }
 
+        else
+        {
+            GameManager.Instance.StopFall();
+            spriteRenderer.enabled = false;
+        }
+    }
+    
+    private IEnumerator WaitThenStopFall(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
         GameManager.Instance.StopFall();
     }
 }
