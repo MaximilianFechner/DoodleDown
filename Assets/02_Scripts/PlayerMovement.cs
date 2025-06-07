@@ -20,10 +20,16 @@ public class PlayerMovement : MonoBehaviour
     private float screenTopY;
     private float screenBottomY;
 
+    [Space(20)]
+    private AudioSource audioSource;
+    public AudioClip[] jumpSounds;
+    public AudioClip[] hitSounds;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         rb.gravityScale = gravityScale;
 
         screenBottomY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0)).y - screenGameOverTolerance;
@@ -102,14 +108,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (GameManager.Instance.isJumpSFXOn && audioSource != null && jumpSounds != null)
+        {
+            audioSource.pitch = Random.Range(1.1f, 1.4f);
+            audioSource.PlayOneShot(jumpSounds[0]);
+        }
+
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.Instance.isHitSFXOn && audioSource != null && hitSounds != null)
+        {
+            audioSource.pitch = Random.Range(1.1f, 1.4f);
+            audioSource.PlayOneShot(hitSounds[0]);
+        }
+
         GameManager.Instance.StopFall();
     }
 }

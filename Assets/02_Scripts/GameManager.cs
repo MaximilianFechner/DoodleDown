@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
 
+    [Space(20)]
+    [Header("Options")]
+    public bool isJumpSFXOn = true;
+    public bool isBackgroundSFXOn = true;
+    public bool isHitSFXOn = true;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
