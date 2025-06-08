@@ -1,55 +1,79 @@
 fileFormatVersion: 2
-guid: ab796d759e6146e4fbca0c08507d356c
+guid: 49ecc4f4f49877749afd5d138db91286
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4956206947225884699
-    second: bat-orig_0
+      213: 5660871419543494905
+    second: bat-fullsheet_0
   - first:
-      213: 6972459151877570972
-    second: bat-orig_1
+      213: 5941749759004283362
+    second: bat-fullsheet_1
   - first:
-      213: 4428992130037574845
-    second: bat-orig_2
+      213: 5352111596610867467
+    second: bat-fullsheet_2
   - first:
-      213: -314200836662291792
-    second: bat-orig_3
+      213: 3502395533986814872
+    second: bat-fullsheet_3
   - first:
-      213: 8166001347766232108
-    second: bat-orig_4
+      213: 2492888584583756711
+    second: bat-fullsheet_4
   - first:
-      213: -6383618470932405145
-    second: bat-orig_5
+      213: -6631824703631107858
+    second: bat-fullsheet_5
   - first:
-      213: -4117342132710153192
-    second: bat-orig_6
+      213: 9001191246415596818
+    second: bat-fullsheet_6
   - first:
-      213: -6270995040504253642
-    second: bat-orig_7
+      213: -1678751878299469379
+    second: bat-fullsheet_7
   - first:
-      213: -8291001227662649871
-    second: bat-orig_8
+      213: 1053969635785802984
+    second: bat-fullsheet_8
   - first:
-      213: -2949963271700672124
-    second: bat-orig_9
+      213: 1097269212500267658
+    second: bat-fullsheet_9
   - first:
-      213: 4997418804188303544
-    second: bat-orig_10
+      213: 5031753552333449902
+    second: bat-fullsheet_10
   - first:
-      213: 5494750652304803404
-    second: bat-orig_11
+      213: -1212898984033201284
+    second: bat-fullsheet_11
   - first:
-      213: 8311663214868495352
-    second: bat-orig_12
+      213: 3257828562533495071
+    second: bat-fullsheet_12
   - first:
-      213: -2994995917460131891
-    second: bat-orig_13
+      213: 4398087299601082784
+    second: bat-fullsheet_13
   - first:
-      213: 5437102537467636419
-    second: bat-orig_14
+      213: -5294790260569837027
+    second: bat-fullsheet_14
   - first:
-      213: 5504457137823109604
-    second: bat-orig_15
+      213: 4688954143593564182
+    second: bat-fullsheet_15
+  - first:
+      213: 6230514548315601344
+    second: bat-fullsheet_16
+  - first:
+      213: 8631732956375941994
+    second: bat-fullsheet_17
+  - first:
+      213: -412005756090097936
+    second: bat-fullsheet_18
+  - first:
+      213: -8061527564812556460
+    second: bat-fullsheet_19
+  - first:
+      213: -5565628907634735446
+    second: bat-fullsheet_20
+  - first:
+      213: -7713685662673946177
+    second: bat-fullsheet_21
+  - first:
+      213: 5209691205355560691
+    second: bat-fullsheet_22
+  - first:
+      213: -6717267951659321278
+    second: bat-fullsheet_23
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -158,67 +182,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bat-orig_1
+      name: bat-fullsheet_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
+        x: 151
+        y: 464
+        width: 33
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c91859e28a623c060800000000000000
-      internalID: 6972459151877570972
+      spriteID: 9f02d0140947f8e40800000000000000
+      internalID: 5660871419543494905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat-orig_2
+      name: bat-fullsheet_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
+        x: 199
+        y: 464
+        width: 33
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbce3ef50e0f67d30800000000000000
-      internalID: 4428992130037574845
+      spriteID: 2e196b1dce5557250800000000000000
+      internalID: 5941749759004283362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bat-orig_3
+      name: bat-fullsheet_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
+        x: 247
+        y: 464
+        width: 33
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b21d96f00cb3abf0800000000000000
-      internalID: -314200836662291792
+      spriteID: b015d32f325864a40800000000000000
+      internalID: 5352111596610867467
       vertices: []
       indices: 
       edges: []
@@ -227,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9b9697f2f89fc7640b9ea8cd8334ee02
+    spriteID: 8560b821aacd01e49abb05f1282b9769
     internalID: 0
     vertices: []
     indices: 
@@ -237,22 +261,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bat-orig_0: 4956206947225884699
-      bat-orig_1: 6972459151877570972
-      bat-orig_10: 4997418804188303544
-      bat-orig_11: 5494750652304803404
-      bat-orig_12: 8311663214868495352
-      bat-orig_13: -2994995917460131891
-      bat-orig_14: 5437102537467636419
-      bat-orig_15: 5504457137823109604
-      bat-orig_2: 4428992130037574845
-      bat-orig_3: -314200836662291792
-      bat-orig_4: 8166001347766232108
-      bat-orig_5: -6383618470932405145
-      bat-orig_6: -4117342132710153192
-      bat-orig_7: -6270995040504253642
-      bat-orig_8: -8291001227662649871
-      bat-orig_9: -2949963271700672124
+      bat-fullsheet_0: 5660871419543494905
+      bat-fullsheet_1: 5941749759004283362
+      bat-fullsheet_2: 5352111596610867467
+      bat-fullsheet_3: 3502395533986814872
+      bat-fullsheet_4: 2492888584583756711
+      bat-fullsheet_5: -6631824703631107858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
