@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,7 +139,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,9 +147,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dbde14d13a2503960800000000000000
+      spriteID: 0b3dc9c1b6c214947853d9080c625506
       internalID: 7579649033388551613
       vertices: []
       indices: 
@@ -159,9 +159,9 @@ TextureImporter:
       name: Full Coins_1
       rect:
         serializedVersion: 2
-        x: 15
+        x: 16
         y: 0
-        width: 17
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -169,9 +169,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3909085aa6c5be740800000000000000
+      spriteID: 6017d06b5bb003f4d9511908e0f751d6
       internalID: 5182337409332842643
       vertices: []
       indices: 
@@ -191,9 +191,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 44848ec4386310080800000000000000
+      spriteID: 4041fe2272302a24da4540dbdeaeede7
       internalID: -9223030624319158204
       vertices: []
       indices: 
@@ -203,9 +203,9 @@ TextureImporter:
       name: Full Coins_3
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 0
-        width: 13
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,9 +213,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 66b67edc6c2233af0800000000000000
+      spriteID: 08d01849e34dbe74e99aad905604d1ec
       internalID: -417952103161959578
       vertices: []
       indices: 
@@ -225,9 +225,9 @@ TextureImporter:
       name: Full Coins_4
       rect:
         serializedVersion: 2
-        x: 68
+        x: 64
         y: 0
-        width: 7
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -235,9 +235,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4a6615782d0e3f170800000000000000
+      spriteID: 3656a45a780053545a5eabb421bd2af9
       internalID: 8211153740444559012
       vertices: []
       indices: 
@@ -247,9 +247,9 @@ TextureImporter:
       name: Full Coins_5
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 0
-        width: 13
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -257,9 +257,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cba3987215a90a140800000000000000
+      spriteID: b3f355c094773b746a5e8d84ef776a31
       internalID: 4728949282085354172
       vertices: []
       indices: 
@@ -279,9 +279,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ebe2fb8693a32a890800000000000000
+      spriteID: 2ee4008a46dbb274eaf57bc33d01e211
       internalID: -7448326815472472386
       vertices: []
       indices: 
@@ -291,9 +291,9 @@ TextureImporter:
       name: Full Coins_7
       rect:
         serializedVersion: 2
-        x: 111
+        x: 112
         y: 0
-        width: 16
+        width: 15
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -301,9 +301,9 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 015cc663e2e9f2db0800000000000000
+      spriteID: d421b905a79a99443ba9ed34892f8225
       internalID: -4814455555316988656
       vertices: []
       indices: 
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5f5249b7019722e46a018406ae440716
     internalID: 0
     vertices: []
     indices: 
