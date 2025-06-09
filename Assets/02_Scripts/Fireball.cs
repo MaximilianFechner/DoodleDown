@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Fireball : MonoBehaviour
 {
     private GameObject player;
-    private Vector2 target;
+    private Vector2 moveDirection;
 
     public float speed;
     public float trackingDuration = 1.5f;
@@ -14,35 +14,18 @@ public class Fireball : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        trackingTimer = trackingDuration;
-        UpdateDirection();
+
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        moveDirection = direction;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+
+        Destroy(this.gameObject, 5f);
     }
 
     void Update()
     {
-        if (trackingTimer > 0f)
-        {
-            trackingTimer -= Time.deltaTime;
-
-            if (player != null)
-            {
-                UpdateDirection();
-                UpdateRotation();
-            }
-        }
-
-        transform.Translate(target * speed * Time.deltaTime);
-    }
-
-    private void UpdateDirection()
-    {
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        target = direction;
-    }
-
-    private void UpdateRotation()
-    {
-        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.Translate(moveDirection * speed * Time.deltaTime);
     }
 }

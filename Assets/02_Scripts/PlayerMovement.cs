@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
         }
-        else if (rb.linearVelocity.y < -2f)
+        else if (rb.linearVelocity.y < -3f)
         {
             animator.SetBool("isJumping", false);
         }
