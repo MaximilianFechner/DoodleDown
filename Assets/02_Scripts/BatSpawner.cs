@@ -42,6 +42,9 @@ public class BatSpawner : MonoBehaviour
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(spawnSound[0]);
 
+                fireBatSpawnChance = 1f;
+                batSpawnChance += 10f;
+
                 yield return new WaitForSeconds(spawnDelay);
                 continue;
             }
@@ -54,8 +57,12 @@ public class BatSpawner : MonoBehaviour
                 audioSource.pitch = Random.Range(0.9f, 1.1f);
                 audioSource.PlayOneShot(spawnSound[0]);
 
-                //batSpawnChance = 0f;
+                batSpawnChance = 0f;
             }
+
+            fireBatSpawnChance += 1f;
+            batSpawnChance += 10f;
+
 
             yield return new WaitForSeconds(spawnDelay);
         }

@@ -761,7 +761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
       propertyPath: enemySpeedMax
@@ -772,12 +772,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
+      propertyPath: batSpawnChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
       propertyPath: enemies.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
       propertyPath: fireBatSpawnChance
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9020723828586436161, guid: b2f2b847808daaa458944b9dd148bb00, type: 3}
       propertyPath: 'enemies.Array.data[1]'
