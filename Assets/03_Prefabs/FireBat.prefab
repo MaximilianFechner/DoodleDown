@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2437273765553736879}
   - component: {fileID: 5053063836077360390}
   - component: {fileID: 3252424657289042024}
+  - component: {fileID: 8923207178427293932}
   m_Layer: 0
   m_Name: FireBat
   m_TagString: Untagged
@@ -259,7 +260,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireBall: {fileID: 5677436498619669009, guid: a8d79e60a087e51489449da24beda014, type: 3}
-  fireBallSpeed: 0
-  attackDelay: 2
+  fireBallSpeed: 7
+  attackDelay: 3
   batLifeTime: 0
   isInPosition: 0
+--- !u!114 &8923207178427293932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737033457801437971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0568de073a773048a91ae72dd7246a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0

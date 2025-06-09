@@ -18,8 +18,9 @@ public class FireBat : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(fireBall, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(attackDelay);
+            GameObject fireball = Instantiate(fireBall, transform.position, Quaternion.identity);
+            fireball.GetComponent<Fireball>().speed = fireBallSpeed;
         }
     }
 }

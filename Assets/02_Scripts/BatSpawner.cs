@@ -14,6 +14,7 @@ public class BatSpawner : MonoBehaviour
     public float spawnMaxX;
 
     public float batSpawnChance;
+    public float fireBatSpawnChance;
 
     private AudioSource audioSource;
 
@@ -32,6 +33,18 @@ public class BatSpawner : MonoBehaviour
             float spawnX = Random.Range(spawnMinX, spawnMaxX);
 
             Vector2 spawnPosition = new Vector2(spawnX, transform.position.y);
+
+            if (random <= fireBatSpawnChance)
+            {
+                GameObject enemy = Instantiate(enemies[1], spawnPosition, Quaternion.identity, transform);
+                enemy.GetComponent<MoveDown>().speed = 1f;
+
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(spawnSound[0]);
+
+                yield return new WaitForSeconds(spawnDelay);
+                continue;
+            }
 
             if (random <= batSpawnChance)
             {
