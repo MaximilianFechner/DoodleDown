@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2437273765553736879}
   - component: {fileID: 5053063836077360390}
   - component: {fileID: 6222656346462879338}
+  - component: {fileID: -3217658952596209420}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -161,8 +162,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4eb0ac9978e8c040a57674de89ae16c, type: 3}
   m_Resource: {fileID: 8300000, guid: f4eb0ac9978e8c040a57674de89ae16c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.306
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 2
   Loop: 1
   Mute: 0
@@ -259,3 +260,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+--- !u!114 &-3217658952596209420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6737033457801437971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9de1e80409a894f82f3725884be2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySound: {fileID: 8300000, guid: f4eb0ac9978e8c040a57674de89ae16c, type: 3}
+  pitchMin: 1.6
+  pitchMax: 2

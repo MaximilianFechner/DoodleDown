@@ -39,8 +39,11 @@ public class BatSpawner : MonoBehaviour
                 GameObject enemy = Instantiate(enemies[1], spawnPosition, Quaternion.identity, transform);
                 enemy.GetComponent<MoveDown>().speed = 1f;
 
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(spawnSound[0]);
+                if (audioSource != null && GameManager.Instance.isSFXOn)
+                {
+                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                    audioSource.PlayOneShot(spawnSound[0]);
+                }
 
                 fireBatSpawnChance = 1f;
                 batSpawnChance += 10f;
@@ -54,8 +57,11 @@ public class BatSpawner : MonoBehaviour
                 GameObject enemy = Instantiate(enemies[0], spawnPosition, Quaternion.identity, transform);
                 enemy.GetComponent<MoveDown>().speed = Random.Range(enemySpeedMin, enemySpeedMax);
 
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(spawnSound[0]);
+                if (audioSource != null && GameManager.Instance.isSFXOn)
+                {
+                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                    audioSource.PlayOneShot(spawnSound[0]);
+                }
 
                 batSpawnChance = 0f;
             }

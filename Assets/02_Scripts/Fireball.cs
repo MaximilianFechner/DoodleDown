@@ -27,7 +27,7 @@ public class Fireball : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        if (audioSource != null)
+        if (audioSource != null && GameManager.Instance.isSFXOn)
         {
             audioSource.pitch = Random.Range(0.5f, 1.5f);
             audioSource.PlayOneShot(clip);

@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (GameManager.Instance.isJumpSFXOn && audioSource != null && jumpSounds != null)
+        if (GameManager.Instance.isSFXOn && audioSource != null && jumpSounds != null)
         {
             audioSource.pitch = Random.Range(1.1f, 1.4f);
             audioSource.PlayOneShot(jumpSounds[0]);
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        if (GameManager.Instance.isHitSFXOn && audioSource != null && hitSounds != null)
+        if (GameManager.Instance.isSFXOn && audioSource != null && hitSounds != null)
         {
             audioSource.pitch = Random.Range(1.2f, 1.5f);
             audioSource.PlayOneShot(hitSounds[0]);

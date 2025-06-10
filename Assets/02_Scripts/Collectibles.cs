@@ -37,7 +37,7 @@ public class Collectibles : MonoBehaviour
 
         GameManager.Instance.AddPoints(pointValue);
 
-        if (collectSound != null)
+        if (collectSound != null && GameManager.Instance.isSFXOn)
         {
             audioSource.PlayOneShot(collectSound);
         }

@@ -21,9 +21,8 @@ public class GameManager : MonoBehaviour
 
     [Space(20)]
     [Header("Options")]
-    public bool isJumpSFXOn = true;
-    public bool isBackgroundSFXOn = true;
-    public bool isHitSFXOn = true;
+    public bool isBackgroundMusicOn = true;
+    public bool isSFXOn = true;
 
     void Awake()
     {
@@ -97,4 +96,18 @@ public class GameManager : MonoBehaviour
         title.SetActive(true);
         exitButton.SetActive(true);
     }
+
+    #region UI_Toggles
+
+    public void SFXToggle()
+    {
+        isSFXOn = !isSFXOn;
+    }
+
+    public void BackgroundMusicToggle()
+    {
+        isBackgroundMusicOn = !isBackgroundMusicOn;
+    }
+
+    #endregion
 }
