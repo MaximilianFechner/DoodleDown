@@ -132,29 +132,14 @@ public class PlayerMovement : MonoBehaviour
         if (playerPS != null)
         {
             playerPS.SetActive(false);
+            //TODO: Nicht einfach das GameObject deaktivieren,
+            //sondern die Emission stoppen (aktive Particle verschwinden sonst einfach sofort)
         }
 
         StartCoroutine(WaitThenStopFall(hitSounds[0].length));
         spriteRenderer.enabled = false;
         Instantiate(playerDeathPS, transform.position, Quaternion.identity);
         isAlive = false;
-
-        //if (GameManager.Instance.isSFXOn && audioSource != null && hitSounds != null)
-        //{
-        //    audioSource.pitch = Random.Range(1.2f, 1.5f);
-        //    audioSource.PlayOneShot(hitSounds[0]);
-        //    StartCoroutine(WaitThenStopFall(hitSounds[0].length));
-        //    spriteRenderer.enabled = false;
-        //    Instantiate(playerDeathPS, transform.position, Quaternion.identity);
-        //    isAlive = false;
-        //}
-
-        //else
-        //{
-        //    GameManager.Instance.StopFall();
-        //    spriteRenderer.enabled = false;
-        //    isAlive = false;
-        //}
     }
     
     private IEnumerator WaitThenStopFall(float delay)
