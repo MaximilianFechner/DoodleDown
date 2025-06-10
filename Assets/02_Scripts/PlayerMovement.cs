@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip[] jumpSounds;
     public AudioClip[] hitSounds;
     public GameObject playerDeathPS;
+    [SerializeField] private GameObject playerPS;
 
     void Start()
     {
@@ -126,18 +127,34 @@ public class PlayerMovement : MonoBehaviour
         {
             audioSource.pitch = Random.Range(1.2f, 1.5f);
             audioSource.PlayOneShot(hitSounds[0]);
-            StartCoroutine(WaitThenStopFall(hitSounds[0].length));
-            spriteRenderer.enabled = false;
-            Instantiate(playerDeathPS, transform.position, Quaternion.identity);
-            isAlive = false;
         }
 
-        else
+        if (playerPS != null)
         {
-            GameManager.Instance.StopFall();
-            spriteRenderer.enabled = false;
-            isAlive = false;
+            playerPS.SetActive(false);
         }
+
+        StartCoroutine(WaitThenStopFall(hitSounds[0].length));
+        spriteRenderer.enabled = false;
+        Instantiate(playerDeathPS, transform.position, Quaternion.identity);
+        isAlive = false;
+
+        //if (GameManager.Instance.isSFXOn && audioSource != null && hitSounds != null)
+        //{
+        //    audioSource.pitch = Random.Range(1.2f, 1.5f);
+        //    audioSource.PlayOneShot(hitSounds[0]);
+        //    StartCoroutine(WaitThenStopFall(hitSounds[0].length));
+        //    spriteRenderer.enabled = false;
+        //    Instantiate(playerDeathPS, transform.position, Quaternion.identity);
+        //    isAlive = false;
+        //}
+
+        //else
+        //{
+        //    GameManager.Instance.StopFall();
+        //    spriteRenderer.enabled = false;
+        //    isAlive = false;
+        //}
     }
     
     private IEnumerator WaitThenStopFall(float delay)
