@@ -11,13 +11,17 @@ public class GameManager : MonoBehaviour
     public float highscore = 0f;
 
     public bool isLevelStarted = false;
+    private AudioSource audioSource;
 
     [Space(20)]
     public GameObject tapToStartButton;
     public GameObject title;
     public GameObject exitButton;
+    public GameObject settingButton;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    [SerializeField] private Toggle toggleMusic;
+    [SerializeField] private Toggle toggleSFX;
 
     [Space(20)]
     [Header("Options")]
@@ -35,6 +39,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        audioSource = GetComponent<AudioSource>();
+
+        LoadPlayerPrefs();
+        UpdateSettingToggles();
+
         Time.timeScale = 0f;
     }
 
@@ -43,10 +52,14 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
 
-        score = 0f;
-
-        highscore = PlayerPrefs.GetFloat("Highscore", 0f);
-        highScoreText.text = $"{Mathf.FloorToInt(highscore)}";
+        if (isBackgroundMusicOn && audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if (!isBackgroundMusicOn && audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     void Update()
@@ -55,6 +68,9 @@ public class GameManager : MonoBehaviour
 
         score += Time.deltaTime;
         scoreText.text = $"{Mathf.FloorToInt(score)}";
+
+        //PlayerPrefs.SetFloat("Score", score);
+        //PlayerPrefs.Save();
 
         if (score > highscore)
         {
@@ -84,10 +100,14 @@ public class GameManager : MonoBehaviour
         tapToStartButton.SetActive(false);
         title.SetActive(false);
         exitButton.SetActive(false);
+        settingButton.SetActive(false);
     }
 
     public void StopFall()
     {
+        PlayerPrefs.SetFloat("Score", score);
+        PlayerPrefs.Save();
+
         Time.timeScale = 0f;
         isLevelStarted = false;
         SceneManager.LoadScene(0);
@@ -95,19 +115,69 @@ public class GameManager : MonoBehaviour
         tapToStartButton.SetActive(true);
         title.SetActive(true);
         exitButton.SetActive(true);
+        settingButton.SetActive(true);
     }
 
-    #region UI_Toggles
+    public void LoadPlayerPrefs()
+    {
+        score = PlayerPrefs.GetFloat("Score", 0f);
+        scoreText.text = $"{Mathf.FloorToInt(score)}";
+
+        highscore = PlayerPrefs.GetFloat("Highscore", 0f);
+        highScoreText.text = $"{Mathf.FloorToInt(highscore)}";
+
+        isSFXOn = PlayerPrefs.GetInt("SFXOn", 1) == 1;
+        isBackgroundMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
+
+    }
+
+    #region Settings_UI_Toggles
+    public void UpdateSettingToggles()
+    {
+        if (toggleSFX != null)
+        {
+            toggleSFX.isOn = isSFXOn;
+        }
+
+        if (toggleMusic != null)
+        {
+            toggleMusic.isOn = isBackgroundMusicOn;
+        }
+    }
 
     public void SFXToggle()
     {
-        isSFXOn = !isSFXOn;
+        isSFXOn = toggleSFX.isOn;
+
+        PlayerPrefs.SetInt("SFXOn", isSFXOn ? 1 : 0);
+        PlayerPrefs.Save();
+
+        UpdateSettingToggles();
     }
 
     public void BackgroundMusicToggle()
     {
-        isBackgroundMusicOn = !isBackgroundMusicOn;
-    }
+        isBackgroundMusicOn = toggleMusic.isOn;
 
+        if (isBackgroundMusicOn)
+        {
+            if (audioSource != null && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+
+        PlayerPrefs.SetInt("MusicOn", isBackgroundMusicOn ? 1 : 0);
+        PlayerPrefs.Save();
+
+        UpdateSettingToggles();
+    }
     #endregion
 }

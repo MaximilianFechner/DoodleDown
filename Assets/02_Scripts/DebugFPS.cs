@@ -22,7 +22,7 @@ public class DebugFPS : MonoBehaviour
         if (deltaTime > interval)
         {
             float fps = frameCount / deltaTime;
-            fpsText.text = $"{Mathf.RoundToInt(fps)}";
+            fpsText.text = $"DEBUG FPS: {Mathf.RoundToInt(fps)}";
             frameCount = 0;
             deltaTime = 0f;
         }
