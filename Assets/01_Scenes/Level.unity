@@ -781,6 +781,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1104284590795685761, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: m_Time
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104284590795685761, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.30226105
+      objectReference: {fileID: 0}
     - target: {fileID: 9063223486527486906, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

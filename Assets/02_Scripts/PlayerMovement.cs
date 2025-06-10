@@ -19,9 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private TrailRenderer trailRenderer;
 
     private float screenTopY;
     private float screenBottomY;
+    private float screenLeftX;
+    private float screenRightX;
 
     [Space(20)]
     private AudioSource audioSource;
@@ -36,16 +39,22 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        trailRenderer = GetComponent<TrailRenderer>();
 
         rb.gravityScale = gravityScale;
 
         screenBottomY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 0)).y - screenGameOverTolerance;
         screenTopY = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1f, 0)).y + screenGameOverTolerance;
+
+        //TEST
+        screenLeftX = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 0.5f, 0)).x - screenGameOverTolerance;
+        screenRightX = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.5f, 0)).x + screenGameOverTolerance;
+
     }
 
     void Update()
     {
-        if (Time.timeScale != 1) return;
+        if (Time.timeScale != 1 || !isAlive) return;
 
         HandleJumpInput();
 
@@ -56,9 +65,11 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.linearVelocity.y < -3f)
         {
             animator.SetBool("isJumping", false);
+            trailRenderer.emitting = false;
         }
 
-        if (transform.position.y > screenTopY || transform.position.y < screenBottomY)
+        if (transform.position.y > screenTopY || transform.position.y < screenBottomY || 
+            transform.position.x < screenLeftX || transform.position.x > screenRightX)
         {
             if (!isAlive) return;
             Die();
@@ -111,6 +122,13 @@ public class PlayerMovement : MonoBehaviour
             audioSource.PlayOneShot(jumpSounds[0]);
         }
 
+        if (trailRenderer != null)
+        {
+            trailRenderer.emitting = false;
+            trailRenderer.Clear();
+            trailRenderer.emitting = true;
+        }
+
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
@@ -123,6 +141,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        if (!isAlive) return;
+
         if (GameManager.Instance.isSFXOn && audioSource != null && hitSounds != null)
         {
             audioSource.pitch = Random.Range(1.2f, 1.5f);
@@ -136,9 +156,12 @@ public class PlayerMovement : MonoBehaviour
             //sondern die Emission stoppen (aktive Particle verschwinden sonst einfach sofort)
         }
 
-        StartCoroutine(WaitThenStopFall(hitSounds[0].length));
         spriteRenderer.enabled = false;
-        Instantiate(playerDeathPS, transform.position, Quaternion.identity);
+        trailRenderer.emitting = false;
+
+        StartCoroutine(WaitThenStopFall(hitSounds[0].length));
+        if (playerDeathPS != null) Instantiate(playerDeathPS, transform.position, Quaternion.identity);
+
         isAlive = false;
     }
     
