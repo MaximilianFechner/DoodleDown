@@ -4,6 +4,7 @@ public class Collectibles : MonoBehaviour
 {
     [Header("Collectible Settings")]
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer coinLighting;
     [SerializeField] public int pointValue = 10;
     [SerializeField] private AudioClip collectSound;
     private AudioSource audioSource;
@@ -18,6 +19,8 @@ public class Collectibles : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        SpriteRenderer coinLighting = GetComponentInChildren<SpriteRenderer>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +43,7 @@ public class Collectibles : MonoBehaviour
         }
 
         spriteRenderer.enabled = false;
+        coinLighting.enabled = false;
 
         Destroy(gameObject, collectSound != null ? collectSound.length : 0.1f);
     }

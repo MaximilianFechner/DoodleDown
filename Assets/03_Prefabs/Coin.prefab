@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 5962912380050878378}
+  coinLighting: {fileID: 2500124475639965074}
   pointValue: 10
   collectSound: {fileID: 8300000, guid: b14c4514bfb077b43934f61a431364a5, type: 3}
 --- !u!114 &-4456213108118914778
