@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,11 +23,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     [SerializeField] private Toggle toggleMusic;
     [SerializeField] private Toggle toggleSFX;
+    [SerializeField] private Toggle[] musicChoiceToggles;
+    public AudioClip[] backgroundMusicClips;
 
     [Space(20)]
     [Header("Options")]
     public bool isBackgroundMusicOn = true;
     public bool isSFXOn = true;
+
+    private int musicChoice;
 
     void Awake()
     {
@@ -129,6 +134,8 @@ public class GameManager : MonoBehaviour
         isSFXOn = PlayerPrefs.GetInt("SFXOn", 1) == 1;
         isBackgroundMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
 
+        musicChoice = PlayerPrefs.GetInt("SelectedMusicIndex", 0);
+        ChangeBackgroundMusic(musicChoice);
     }
 
     #region Settings_UI_Toggles
@@ -142,6 +149,11 @@ public class GameManager : MonoBehaviour
         if (toggleMusic != null)
         {
             toggleMusic.isOn = isBackgroundMusicOn;
+        }
+
+        if (musicChoiceToggles != null && musicChoice >= 0 && musicChoice < musicChoiceToggles.Length)
+        {
+            musicChoiceToggles[musicChoice].isOn = true;
         }
     }
 
@@ -178,6 +190,22 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
 
         UpdateSettingToggles();
+    }
+
+    public void ChangeBackgroundMusic(int choice)
+    {
+        if (audioSource != null && backgroundMusicClips != null && choice < backgroundMusicClips.Length)
+        {
+            audioSource.clip = backgroundMusicClips[choice];
+
+            if (audioSource.clip != null && isBackgroundMusicOn)
+            {
+                audioSource.Play();
+            }
+
+            PlayerPrefs.SetInt("SelectedMusicIndex", choice);
+            PlayerPrefs.Save();
+        }
     }
     #endregion
 }

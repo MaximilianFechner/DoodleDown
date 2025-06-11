@@ -119,9 +119,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &23239381 stripped
+--- !u!114 &87779233 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4387467626351620599, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2350858165736439801, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
   m_PrefabInstance: {fileID: 8984770112210295040}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -535,9 +535,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1886102188 stripped
+--- !u!114 &1739676782 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1660011148870250304, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3524514077044091234, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+  m_PrefabInstance: {fileID: 8984770112210295040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1837413731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1334635989509757879, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
   m_PrefabInstance: {fileID: 8984770112210295040}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -979,38 +990,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1409911765520279695, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1660011148870250304, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_IsOn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1812047251458093342, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2063106481267307508, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2838717180182774293, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4387467626351620599, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_IsOn
-      value: 0
+    - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: musicChoiceToggles.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: toggleSFX
+      propertyPath: 'musicChoiceToggles.Array.data[0]'
       value: 
-      objectReference: {fileID: 1886102188}
+      objectReference: {fileID: 87779233}
     - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: toggleMusic
+      propertyPath: 'musicChoiceToggles.Array.data[1]'
       value: 
-      objectReference: {fileID: 23239381}
+      objectReference: {fileID: 1837413731}
+    - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: 'musicChoiceToggles.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1739676782}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
