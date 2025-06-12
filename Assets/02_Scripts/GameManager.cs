@@ -1,5 +1,6 @@
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -202,6 +203,13 @@ public class GameManager : MonoBehaviour
             {
                 audioSource.Play();
             }
+
+            foreach (Toggle toggle in musicChoiceToggles)
+            {
+                if (toggle.isOn) toggle.interactable = false;
+                else toggle.interactable = true;
+            }
+
 
             PlayerPrefs.SetInt("SelectedMusicIndex", choice);
             PlayerPrefs.Save();
