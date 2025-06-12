@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -98,7 +99,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && 
+                !EventSystem.current.IsPointerOverGameObject(touch.fingerId) &&
+                !EventSystem.current.IsPointerOverGameObject())
             {
                 if (touch.position.x < Screen.width / 2f)
                 {

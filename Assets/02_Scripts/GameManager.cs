@@ -13,13 +13,18 @@ public class GameManager : MonoBehaviour
     public float highscore = 0f;
 
     public bool isLevelStarted = false;
+    public bool isGamePaused = false;
+
     private AudioSource audioSource;
 
     [Space(20)]
     public GameObject tapToStartButton;
     public GameObject title;
     public GameObject exitButton;
+    public GameObject pauseButton;
     public GameObject settingButton;
+    public GameObject pausePanel;
+    public GameObject settingsPanel;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     [SerializeField] private Toggle toggleMusic;
@@ -97,6 +102,36 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Pause()
+    {
+        isGamePaused = !isGamePaused;
+
+        if (isGamePaused)
+        {
+            if (pausePanel != null)
+            {
+                pausePanel.SetActive(true);
+            }
+
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            if (pausePanel != null)
+            {
+                pausePanel.SetActive(false);
+            }
+
+            if (settingsPanel != null && settingsPanel.activeInHierarchy)
+            {
+                settingsPanel.SetActive(false);
+            }
+
+            Time.timeScale = 1f;
+        }
+
+    }
+
     public void StartFall()
     {
         score = 0f;
@@ -107,6 +142,7 @@ public class GameManager : MonoBehaviour
         title.SetActive(false);
         exitButton.SetActive(false);
         settingButton.SetActive(false);
+        pauseButton.SetActive(true);
     }
 
     public void StopFall()
@@ -122,6 +158,7 @@ public class GameManager : MonoBehaviour
         title.SetActive(true);
         exitButton.SetActive(true);
         settingButton.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     public void LoadPlayerPrefs()
