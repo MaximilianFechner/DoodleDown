@@ -95,12 +95,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationPause(bool pause)
-    {
-        if (isGamePaused) return;
-        Pause();
-    }
-
     public void AddPoints(int value)
     {
         score += value;
