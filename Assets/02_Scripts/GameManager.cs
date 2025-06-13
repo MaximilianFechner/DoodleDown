@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Space(20)]
     public GameObject tapToStartButton;
+    public GameObject tapToContinueButton;
     public GameObject title;
     public GameObject exitButton;
     public GameObject pauseButton;
@@ -27,8 +29,11 @@ public class GameManager : MonoBehaviour
     public GameObject settingsPanel;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI unpauseText;
     [SerializeField] private Toggle toggleMusic;
     [SerializeField] private Toggle toggleSFX;
+
+    [Space(20)]
     [SerializeField] private Toggle[] musicChoiceToggles;
     public AudioClip[] backgroundMusicClips;
 
@@ -102,6 +107,8 @@ public class GameManager : MonoBehaviour
             if (pausePanel != null)
             {
                 pausePanel.SetActive(true);
+                pauseButton.SetActive(false);
+                tapToContinueButton.SetActive(true);
             }
 
             if (isSFXOn)
@@ -127,16 +134,7 @@ public class GameManager : MonoBehaviour
                 settingsPanel.SetActive(false);
             }
 
-            if (isSFXOn)
-            {   
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (GameObject enemy in enemies)
-                {
-                    enemy.GetComponent<AudioSource>().Play();
-                }
-            }
-
-            Time.timeScale = 1f;
+            StartCoroutine("ContinueCountdown");
         }
 
     }
@@ -168,6 +166,9 @@ public class GameManager : MonoBehaviour
         exitButton.SetActive(true);
         settingButton.SetActive(true);
         pauseButton.SetActive(false);
+
+        if (pausePanel.gameObject.activeInHierarchy) pausePanel.SetActive(false);
+        if (unpauseText.gameObject.activeInHierarchy) unpauseText.gameObject.SetActive(false);
     }
 
     public void LoadPlayerPrefs()
@@ -198,6 +199,36 @@ public class GameManager : MonoBehaviour
         {
             audioSource.Stop();
         }
+    }
+
+    public IEnumerator ContinueCountdown()
+    {
+        if (unpauseText == null) yield return null;
+
+        unpauseText.gameObject.SetActive(true);
+        unpauseText.text = string.Empty;
+
+        for (int i = 3; i > 0; i--)
+        {
+            unpauseText.text = $"{i.ToString()}...";
+            yield return new WaitForSecondsRealtime(1f);
+        }
+
+        unpauseText.text = string.Empty;
+        unpauseText.gameObject.SetActive(false);
+        pauseButton.SetActive(true);
+        tapToContinueButton.SetActive(false);
+
+        if (isSFXOn)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<AudioSource>().Play();
+            }
+        }
+
+        Time.timeScale = 1f;
     }
 
     #region Settings_UI_Toggles
