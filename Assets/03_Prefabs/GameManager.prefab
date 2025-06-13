@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 4763306215667325498}
   - component: {fileID: 5353124954652521540}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2368,7 +2368,7 @@ GameObject:
   - component: {fileID: 6343405962813313600}
   - component: {fileID: 232477181994442114}
   m_Layer: 5
-  m_Name: Title
+  m_Name: TitleTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2787,7 +2787,7 @@ GameObject:
   - component: {fileID: 5713538358096685471}
   - component: {fileID: 7064221948965120647}
   m_Layer: 5
-  m_Name: HighsoreIngame
+  m_Name: HighsoreIngameTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
