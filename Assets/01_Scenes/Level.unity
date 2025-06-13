@@ -1059,6 +1059,10 @@ PrefabInstance:
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 641065514}
+    - target: {fileID: 6811439250351607888, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8238295882046771147, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
       propertyPath: m_Name
       value: PauseBTN

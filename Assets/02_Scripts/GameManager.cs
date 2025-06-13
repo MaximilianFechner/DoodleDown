@@ -62,15 +62,6 @@ public class GameManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
-
-        if (isBackgroundMusicOn && audioSource != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-        else if (!isBackgroundMusicOn && audioSource != null && audioSource.isPlaying)
-        {
-            audioSource.Stop();
-        }
     }
 
     void Update()
@@ -113,6 +104,15 @@ public class GameManager : MonoBehaviour
                 pausePanel.SetActive(true);
             }
 
+            if (isSFXOn)
+            {
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy.GetComponent<AudioSource>().Stop();
+                }
+            }
+
             Time.timeScale = 0f;
         }
         else
@@ -125,6 +125,15 @@ public class GameManager : MonoBehaviour
             if (settingsPanel != null && settingsPanel.activeInHierarchy)
             {
                 settingsPanel.SetActive(false);
+            }
+
+            if (isSFXOn)
+            {   
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy.GetComponent<AudioSource>().Play();
+                }
             }
 
             Time.timeScale = 1f;
@@ -173,7 +182,22 @@ public class GameManager : MonoBehaviour
         isBackgroundMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
 
         musicChoice = PlayerPrefs.GetInt("SelectedMusicIndex", 0);
+
+        if (musicChoiceToggles != null && musicChoice >= 0 && musicChoice < musicChoiceToggles.Length)
+        {
+            musicChoiceToggles[musicChoice].isOn = true;
+        }
+
         ChangeBackgroundMusic(musicChoice);
+
+        if (isBackgroundMusicOn && audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        else if (!isBackgroundMusicOn && audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     #region Settings_UI_Toggles
@@ -187,11 +211,6 @@ public class GameManager : MonoBehaviour
         if (toggleMusic != null)
         {
             toggleMusic.isOn = isBackgroundMusicOn;
-        }
-
-        if (musicChoiceToggles != null && musicChoice >= 0 && musicChoice < musicChoiceToggles.Length)
-        {
-            musicChoiceToggles[musicChoice].isOn = true;
         }
     }
 
@@ -246,7 +265,6 @@ public class GameManager : MonoBehaviour
                 if (toggle.isOn) toggle.interactable = false;
                 else toggle.interactable = true;
             }
-
 
             PlayerPrefs.SetInt("SelectedMusicIndex", choice);
             PlayerPrefs.Save();
