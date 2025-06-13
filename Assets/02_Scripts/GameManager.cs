@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!isLevelStarted) return;
+        if (!Application.isFocused) Pause();
 
         score += Time.deltaTime;
         scoreText.text = $"{Mathf.FloorToInt(score)}";
