@@ -10,15 +10,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Values To Track")]
     public float score = 0f;
     public float highscore = 0f;
-
     public bool isLevelStarted = false;
     public bool isGamePaused = false;
 
     private AudioSource audioSource;
 
     [Space(20)]
+    [Header("UI References")]
     public GameObject tapToStartButton;
     public GameObject tapToContinueButton;
     public GameObject title;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Toggle toggleMusic;
     [SerializeField] private Toggle toggleSFX;
 
-    [Space(20)]
+    [Space(5)]
     [SerializeField] private Toggle[] musicChoiceToggles;
     public AudioClip[] backgroundMusicClips;
 
@@ -41,6 +42,12 @@ public class GameManager : MonoBehaviour
     [Header("Options")]
     public bool isBackgroundMusicOn = true;
     public bool isSFXOn = true;
+
+    [Space(20)]
+    [Header("Script References")]
+    public PlayerMovement playerMovement;
+    public Spawner platformSpawner;
+    public BatSpawner batSpawner;
 
     private int musicChoice;
 
@@ -60,7 +67,7 @@ public class GameManager : MonoBehaviour
         LoadPlayerPrefs();
         UpdateSettingToggles();
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     private void Start()
@@ -71,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!isLevelStarted || Time.timeScale != 1) return;
+        if (!isLevelStarted) return;
 
         score += Time.deltaTime;
         scoreText.text = $"{Mathf.FloorToInt(score)}";
@@ -142,7 +149,7 @@ public class GameManager : MonoBehaviour
     public void StartFall()
     {
         score = 0f;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         isLevelStarted = true;
 
         tapToStartButton.SetActive(false);
@@ -150,6 +157,24 @@ public class GameManager : MonoBehaviour
         exitButton.SetActive(false);
         settingButton.SetActive(false);
         pauseButton.SetActive(true);
+
+        if (playerMovement == null) playerMovement = FindAnyObjectByType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.ChangeRigidbodyType(false);
+        }
+
+        if (platformSpawner == null) platformSpawner = FindAnyObjectByType<Spawner>();
+        if (platformSpawner != null)
+        {
+            platformSpawner.SpawningPlatforms(true);
+        }
+
+        if (batSpawner == null) batSpawner = FindAnyObjectByType<BatSpawner>();
+        if (batSpawner != null)
+        {
+            batSpawner.SpawningBats(true);
+        }
     }
 
     public void StopFall()
@@ -157,8 +182,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("Score", score);
         PlayerPrefs.Save();
 
-        Time.timeScale = 0f;
-        isLevelStarted = false;
+        //Time.timeScale = 0f;
+        //isLevelStarted = false;
         SceneManager.LoadScene(0);
 
         tapToStartButton.SetActive(true);

@@ -166,6 +166,13 @@ public class PlayerMovement : MonoBehaviour
         if (playerDeathPS != null) Instantiate(playerDeathPS, transform.position, Quaternion.identity);
 
         isAlive = false;
+        GameManager.Instance.isLevelStarted = false;
+    }
+
+    public void ChangeRigidbodyType(bool isStatic)
+    {
+        if (isStatic) this.rb.bodyType = RigidbodyType2D.Static;
+        else this.rb.bodyType = RigidbodyType2D.Dynamic;
     }
     
     private IEnumerator WaitThenStopFall(float delay)

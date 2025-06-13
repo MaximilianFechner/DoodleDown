@@ -206,6 +206,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170974331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 832698785817424518, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+  m_PrefabInstance: {fileID: 6972724662568966056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f23e1a776ba7964c818f6ad4f952566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &328421088
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +840,10 @@ PrefabInstance:
       value: 0.30226105
       objectReference: {fileID: 0}
     - target: {fileID: 4249510190483871886, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249510190483871886, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
@@ -1030,6 +1045,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 170974331}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,14 +13,14 @@ public class Spawner : MonoBehaviour
 
     public float collectibleChance;
 
-    private void Start()
+    public void SpawningPlatforms(bool isSpawning)
     {
-        StartCoroutine(Spawning());
+        StartCoroutine(Spawning(isSpawning));
     }
 
-    public IEnumerator Spawning()
+    public IEnumerator Spawning(bool isSpawning)
     {
-        while (true)
+        while (isSpawning)
         {
             float random = Random.Range(1, 100);
             float spawnX = Random.Range(spawnMinX, spawnMaxX);
