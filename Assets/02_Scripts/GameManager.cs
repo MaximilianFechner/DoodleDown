@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!isLevelStarted) return;
-        if (!Application.isFocused) Pause();
 
         score += Time.deltaTime;
         scoreText.text = $"{Mathf.FloorToInt(score)}";
@@ -94,6 +93,12 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
             highScoreText.text = $"{Mathf.FloorToInt(highscore)}";
         }
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (isGamePaused) return;
+        Pause();
     }
 
     public void AddPoints(int value)
