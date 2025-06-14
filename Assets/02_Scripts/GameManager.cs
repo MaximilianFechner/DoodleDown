@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     [Header("UI References")]
     public GameObject tapToStartButton;
     public GameObject tapToContinueButton;
-    public GameObject title;
-    public GameObject exitButton;
+    public GameObject titleText;
     public GameObject pauseButton;
     public GameObject settingButton;
+    public GameObject achievementsButton;
+    public GameObject rankButton;
+    public GameObject statsButton;
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public TextMeshProUGUI scoreText;
@@ -150,14 +152,15 @@ public class GameManager : MonoBehaviour
     {
         score = 0f;
 
-        //Time.timeScale = 1f;
-
         isLevelStarted = true;
 
         tapToStartButton.SetActive(false);
-        title.SetActive(false);
-        exitButton.SetActive(false);
+        titleText.SetActive(false);
         settingButton.SetActive(false);
+        achievementsButton.SetActive(false);
+        rankButton.SetActive(false);
+        statsButton.SetActive(false);
+
         pauseButton.SetActive(true);
 
         if (playerMovement == null) playerMovement = FindAnyObjectByType<PlayerMovement>();
@@ -187,9 +190,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
 
         tapToStartButton.SetActive(true);
-        title.SetActive(true);
-        exitButton.SetActive(true);
+        titleText.SetActive(true);
         settingButton.SetActive(true);
+        achievementsButton.SetActive(true);
+        rankButton.SetActive(true);
+        statsButton.SetActive(true);
+
         pauseButton.SetActive(false);
 
         Time.timeScale = 1f;
