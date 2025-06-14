@@ -21,13 +21,17 @@ public class BatSpawner : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        StartCoroutine(BatSpawning());
+        //StartCoroutine(BatSpawning());
     }
 
-    public IEnumerator BatSpawning()
+    public void SpawningBats(bool isSpawning)
     {
-        while (true)
+        StartCoroutine(BatSpawning(isSpawning));
+    }
+
+    public IEnumerator BatSpawning(bool isSpawning)
+    {
+        while (isSpawning)
         {
             float random = Random.Range(1, 100);
             float spawnX = Random.Range(spawnMinX, spawnMaxX);

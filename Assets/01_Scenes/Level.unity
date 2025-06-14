@@ -206,6 +206,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170974331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 832698785817424518, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+  m_PrefabInstance: {fileID: 6972724662568966056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f23e1a776ba7964c818f6ad4f952566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &328421088
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,11 +456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetWidth: 9.6
   baseOrthographicSize: 5
---- !u!1 &641065514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8238295882046771147, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-  m_PrefabInstance: {fileID: 8984770112210295040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &878708028
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +839,14 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.30226105
       objectReference: {fileID: 0}
+    - target: {fileID: 4249510190483871886, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249510190483871886, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9063223486527486906, guid: da11e3462c1121a4f8042ee83310e5be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1027,50 +1041,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2420572174848609448, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Color.a
-      value: 0.039215688
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420572174848609448, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420572174848609448, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420572174848609448, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688764643192235788, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3688764643192235788, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 3688764643192235788, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: pauseButton
-      value: 
-      objectReference: {fileID: 641065514}
-    - target: {fileID: 6811439250351607888, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_PixelPerfect
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8238295882046771147, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_Name
-      value: PauseBTN
+    - target: {fileID: 4819373098700907132, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.99607843
       objectReference: {fileID: 0}
-    - target: {fileID: 8238295882046771147, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6312591152993619166, guid: 9b3464b3a613d274d8aa6c0feac5bdc0, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 170974331}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
