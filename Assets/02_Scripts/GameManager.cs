@@ -149,7 +149,9 @@ public class GameManager : MonoBehaviour
     public void StartFall()
     {
         score = 0f;
+
         //Time.timeScale = 1f;
+
         isLevelStarted = true;
 
         tapToStartButton.SetActive(false);
@@ -182,8 +184,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("Score", score);
         PlayerPrefs.Save();
 
-        //Time.timeScale = 0f;
-        //isLevelStarted = false;
         SceneManager.LoadScene(0);
 
         tapToStartButton.SetActive(true);
@@ -192,6 +192,9 @@ public class GameManager : MonoBehaviour
         settingButton.SetActive(true);
         pauseButton.SetActive(false);
 
+        Time.timeScale = 1f;
+
+        if (isGamePaused) isGamePaused = false;
         if (pausePanel.gameObject.activeInHierarchy) pausePanel.SetActive(false);
         if (unpauseText.gameObject.activeInHierarchy) unpauseText.gameObject.SetActive(false);
     }
