@@ -7,7 +7,8 @@ public class Spawner : MonoBehaviour
     public GameObject[] collectibles;
 
     public float movementSpeed;
-    public float spawnDelay;
+    public float spawnDelayMin;
+    public float spawnDelayMax;
     public float spawnMinX;
     public float spawnMaxX;
 
@@ -41,7 +42,7 @@ public class Spawner : MonoBehaviour
                 collectibleChance++;
             }
             
-            yield return new WaitForSeconds(spawnDelay + (Random.Range(-0.5f, 0f)));
+            yield return new WaitForSeconds(Random.Range(spawnDelayMin, spawnDelayMax));
         }
     }
 }

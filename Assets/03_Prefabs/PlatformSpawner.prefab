@@ -47,6 +47,9 @@ MonoBehaviour:
   platformTiles:
   - {fileID: 2503325928706899972, guid: 0f5293a7cec26394bb60f8322195ab69, type: 3}
   - {fileID: 2503325928706899972, guid: 0bcbf467858e27943a0446c6de426a02, type: 3}
+  - {fileID: 5337367211517800382, guid: c3b001454d5b09f4d9d772233e8be0d8, type: 3}
+  - {fileID: 2651400029195392410, guid: 3815612f630c5be489274f260da8167e, type: 3}
+  - {fileID: 2180079210454645788, guid: 815938f8964c81c4db3b780f71506534, type: 3}
   collectibles:
   - {fileID: 992404838178491198, guid: a3e8a1671eb9d0746bf6b848c9e8b435, type: 3}
   movementSpeed: 3

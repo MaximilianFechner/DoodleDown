@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     [Header("Options")]
     public bool isBackgroundMusicOn = true;
     public bool isSFXOn = true;
+    public enum Language { English, German }
 
     [Space(20)]
     [Header("Script References")]

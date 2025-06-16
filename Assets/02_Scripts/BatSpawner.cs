@@ -16,6 +16,9 @@ public class BatSpawner : MonoBehaviour
     public float batSpawnChance;
     public float fireBatSpawnChance;
 
+    public float batSpawnIncrease;
+    public float fireBatSpawnIncrease;
+
     private AudioSource audioSource;
 
     private void Start()
@@ -49,8 +52,8 @@ public class BatSpawner : MonoBehaviour
                     audioSource.PlayOneShot(spawnSound[0]);
                 }
 
-                fireBatSpawnChance = 1f;
-                batSpawnChance += 10f;
+                fireBatSpawnChance = 0f;
+                batSpawnChance += batSpawnIncrease;
 
                 yield return new WaitForSeconds(spawnDelay);
                 continue;
@@ -70,8 +73,8 @@ public class BatSpawner : MonoBehaviour
                 batSpawnChance = 0f;
             }
 
-            fireBatSpawnChance += 1f;
-            batSpawnChance += 10f;
+            fireBatSpawnChance += fireBatSpawnIncrease;
+            batSpawnChance += batSpawnIncrease;
 
 
             yield return new WaitForSeconds(spawnDelay);

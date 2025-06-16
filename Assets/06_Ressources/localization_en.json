@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "key": "sfx_btn",
+      "value": "Sounds"
+    },
+    {
+      "key": "music_btn",
+      "value": "Music"
+    },
+    {
+      "key": "language_btn",
+      "value": "English"
+    },
+    {
+      "key": "tapToStart",
+      "value": "Tap To Start"
+    },
+    {
+      "key": "tapToContinue",
+      "value": "Tap To Continue"
+    },
+    {
+      "key": "pause",
+      "value": "Paused"
+    },
+    {
+      "key": "settings_txt",
+      "value": "Settings"
+    }
+  ]
+}
