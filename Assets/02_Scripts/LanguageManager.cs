@@ -25,6 +25,18 @@ public class LanguageManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            string language = PlayerPrefs.GetString("language");
+
+            if (language != null && language == Language.German.ToString())
+            {
+                currentLanguage = Language.German;
+            }
+            else
+            {
+                currentLanguage = Language.English;
+            }
+
             LoadLocalizedText(currentLanguage);
         }
         else
@@ -39,6 +51,9 @@ public class LanguageManager : MonoBehaviour
         {
             currentLanguage = Language.German;
 
+            PlayerPrefs.SetString("language", currentLanguage.ToString());
+            PlayerPrefs.Save();
+
             if (deImage != null && enImage != null)
             {
                 deImage.SetActive(true);
@@ -48,6 +63,9 @@ public class LanguageManager : MonoBehaviour
         else
         {
             currentLanguage = Language.English;
+
+            PlayerPrefs.SetString("language", currentLanguage.ToString());
+            PlayerPrefs.Save();
 
             if (deImage != null && enImage != null)
             {
@@ -73,6 +91,17 @@ public class LanguageManager : MonoBehaviour
         foreach (LocalizedText lt in FindObjectsOfType<LocalizedText>())
         {
             lt.UpdateText();
+        }
+
+        if (currentLanguage == Language.English)
+        {
+            deImage.SetActive(false);
+            enImage.SetActive(true);
+        }
+        else
+        {
+            deImage.SetActive(true);
+            enImage.SetActive(false);
         }
     }
 
