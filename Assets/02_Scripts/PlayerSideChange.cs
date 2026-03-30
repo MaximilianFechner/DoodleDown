@@ -6,6 +6,8 @@ public class PlayerSideChange : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.affixSideChangeDisabled) return;
+
         Vector3 pos = transform.position;
 
         if (pos.x > changeXLimit)

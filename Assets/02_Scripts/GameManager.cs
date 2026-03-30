@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public bool isLevelStarted = false;
     public bool isGamePaused = false;
 
+    [Header("Affix System")]
+    public bool affixSideChangeDisabled = false;
+    public float basePointsPerSecond = 1f;
+    private float currentMultiplier = 1f;
+
     private AudioSource audioSource;
 
     [Space(20)]
@@ -84,11 +89,11 @@ public class GameManager : MonoBehaviour
     {
         if (!isLevelStarted) return;
 
-        score += Time.deltaTime;
-        scoreText.text = $"{Mathf.FloorToInt(score)}";
+        // Berechnung: Basiswert * Multiplikator * Zeit
+        float pointsThisFrame = basePointsPerSecond * currentMultiplier * Time.deltaTime;
+        score += pointsThisFrame;
 
-        //PlayerPrefs.SetFloat("Score", score);
-        //PlayerPrefs.Save();
+        scoreText.text = $"{Mathf.FloorToInt(score)}";
 
         if (score > highscore)
         {
@@ -102,6 +107,18 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int value)
     {
         score += value;
+    }
+
+    public void UpdateMultiplier()
+    {
+        currentMultiplier = 1f;
+
+        if (affixSideChangeDisabled)
+        {
+            currentMultiplier += 0.5f;
+        }
+
+        // Hier können später weitere Affixe (z.B. schnellere Fledermäuse) hinzugefügt werden
     }
 
     public void CloseGame()
