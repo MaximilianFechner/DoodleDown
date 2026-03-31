@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isGamePaused = false;
 
     [Header("Affix System")]
-    public bool affixSideChangeDisabled = false;
+    public Affix[] availableAffixes;
     public float basePointsPerSecond = 1f;
     private float currentMultiplier = 1f;
 
@@ -112,13 +112,13 @@ public class GameManager : MonoBehaviour
     public void UpdateMultiplier()
     {
         currentMultiplier = 1f;
-
-        if (affixSideChangeDisabled)
+        foreach (Affix affix in availableAffixes)
         {
-            currentMultiplier += 0.5f;
+            if (affix.isActive)
+            {
+                currentMultiplier += affix.multiplierBonus;
+            }
         }
-
-        // Hier können später weitere Affixe (z.B. schnellere Fledermäuse) hinzugefügt werden
     }
 
     public void CloseGame()
